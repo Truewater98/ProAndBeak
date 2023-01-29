@@ -10,7 +10,7 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int index = Integer.parseInt(st.nextToken());
 		int amount = Integer.parseInt(st.nextToken());
-		long min = 0;
+		long min = 1;
 		long max = 0;
 		long length = 0;
 		int[] nums = new int[index];
@@ -18,15 +18,14 @@ public class Main {
 			nums[i] = Integer.parseInt(br.readLine());
 			if(max < nums[i]) max = nums[i];
 		}
-		max++;
-		while(min < max) {
+		while(min <= max) {
 			length = (max + min) / 2;
 			int result = 0;
 			for(int i = 0; i < index; i++) {
 				result += nums[i] / length; 
 			}
 			if(result < amount) {
-				max = length;
+				max = length - 1;
 			}else {
 				min = (length + 1);
 			}
